@@ -1,0 +1,70 @@
+.main-banner{
+    background-color: aqua;
+    height: 80vh;
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info{
+    margin: 0px 50px;
+}
+.info h1{
+    font-size: 90px;
+    font-weight: 700;
+}
+.info p{
+    font-size: 20px;
+}
+.image img{
+    width: 100%;
+}
+.sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+
+
+.products {
+    background: black;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(16, 195, 254, 1) 50%,
+      rgba(142, 255, 125, 1) 100%
+    );
+  }
+
+  .sel-bg {
+    /* background: rgb(118, 255, 255); */
+    /* background-color: aqua; */
+    /* background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 100%,
+      rgba(255, 233, 101, 1) 100%
+    ); */
+    /* margin: 40px 0; */
+ }
+
+
+@media screen and (max-width: 600px){
+    .main-banner{
+        height: 90vh;
+        /* margin-top: 60px; */
+    }
+    .heading{
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+    }
+    .info h1{
+        font-size: 80px;
+    }
+    .image img{
+        width: 100%;
+    }
+}

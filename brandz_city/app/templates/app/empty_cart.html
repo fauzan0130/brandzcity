@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Empty cart{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'app/css/registration.css' %}">
+{% endblock style %}
+
+{% block body_block %}
+
+<h1 style="margin-top:7%">Your cart is empty. Please add items to your cart!</h1>
+
+{% endblock body_block %}

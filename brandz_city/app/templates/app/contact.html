@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Contact{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'app/css/registration.css' %}">
+{% endblock style %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'app/css/registration.css' %}">
+{% endblock style %}
+
+{% block body_block %}
+<h1 class="login-header container my-4 text-center">Contact Us!</h1>
+
+<form class="row mx-5 container custom-form-2" method="POST">
+    {% csrf_token %}
+    {% for message in messages %}
+    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5 {% endif %}">{{ message }}: <a
+            href="{% url 'home' %}" class="btn btn-primary">Home</a></p>
+    {% endfor %}
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input name="name" type="text" class="form-control" id="name">
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" id="email">
+    </div>
+    <div class="col-md-6">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input name="phone" type="tel" class="form-control" id="phone">
+    </div>
+    <div class="col-12">
+        <label for="contact_for" class="form-label">Contact For</label>
+        <input name="contact_for" type="text" class="form-control" id="contact_for" placeholder="1234 Main St">
+    </div>
+    <div class="col-12">
+        <label for="textarea" class="form-label">Address 2</label>
+        <textarea name="text" id="" cols="30" rows="10" class="form-control" id="textarea"
+            placeholder="Your Questions, Queries, or any other purpose to contact..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary my-4">Submit</button>
+
+</form>
+
+{% endblock body_block %}

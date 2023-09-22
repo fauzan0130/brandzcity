@@ -1,0 +1,73 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Product    il{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+{% endblock style %}
+{% block body_block %}
+<div class="my-1">
+    <div class="desc-main details">
+        <div>
+            <div class="pro-desc mx-2">
+                <h2 name="title" id="title" value={{product.title}}>{{product.title}}</h2>
+                <p>{{product.description}}</p> <br>
+            </div>
+            <div class="col-sm-6 text-center align-self-center custom-img ">
+                <img src="{{product.product_img.url}}" alt="" class="mx-4">
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div class="pro-info">
+        <div class="custom-style">
+
+            <h5><small class="fw-light text-decoration-line-through">Rs.
+                    {{product.original_price}}</small> Rs. {{product.price}}</h5> <br>
+                    <h5>Size available: {{product.size_available}}</h5>
+                    <p></p>
+                    
+
+
+
+
+            {% if request.user.is_authenticated %}
+            {% if product_in_cart %}
+            <a href="{% url 'display_cart' %}" class="btn btn-warning shadow px-5 py-2 ms-4 custom-btn">Go to Cart</a>
+            {% else %}
+            <form action="/add_to_cart" class="d-inline">
+                <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
+                <button type="submit" class="btn btn-danger shadow px-5 py-2 custom-btn">Add to
+                    cart</button>
+            </form>
+            {% endif %}
+            {% endif %}
+
+
+
+            {% if not request.user.is_authenticated %}
+            <a href="{% url 'login' %}" class="d-inline">
+                <input type="hidden" name="prod_id" value="{{product.id}}" id="prod_id">
+                <button type="submit" class="btn btn-danger shadow px-5 py-2">Add to cart</button>
+            </a>
+            {% endif %}
+            <hr>
+            <p>Shoe size and address can be added at checkout page</p>
+            <p>Free delivery all over Ratnagiri</p>
+
+
+
+            <h5 class="mt-5">Delivery Timings:</h5>
+            <ul>
+                <li>8AM to 11AM (For orders from 4:30pm to 8:30am)</li>
+                <li>4PM to 8PM (For orders from 8:31pm to 4:29am)</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    if (performance.navigation.type == 2) {
+        location.reload(true);
+    }
+</script>
+{% endblock body_block %}
